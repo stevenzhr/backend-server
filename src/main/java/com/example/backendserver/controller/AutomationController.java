@@ -26,6 +26,7 @@ public class AutomationController {
         Device drivenDevice = deviceMapper.selectOne(Wrappers.<Device>lambdaQuery().eq(Device::getDeviceId, automation.getDrivenDeviceId()));
         automation.setPrimeDeviceName(primeDevice.getName());
         automation.setDrivenDeviceName(drivenDevice.getName());
+        System.out.println(automation);
         automationMapper.insert(automation);
         return Result.success();
     }
